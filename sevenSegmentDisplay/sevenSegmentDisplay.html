@@ -4,8 +4,21 @@
     <meta charset="UTF-8">
     <title>Seven segment display</title>
     <script src="sevenSegmentDisplay.js"></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <h1>Seven segment display - Week01</h1>
+<button onclick="incrementNum()">Add 1 to value</button>
+<button onclick="decrementNum()">Subtract 1 to value</button>
+<p id="display">0</p>
+
+<div class="segment vertical"></div>
+<div class="segment vertical"></div>
+<div class="segment vertical active"></div>
+<div class="segment vertical"></div>
+<div class="segment vertical"></div>
+<div class="segment horizontal"></div>
+<div class="segment horizontal"></div>
+
 </body>
 </html>

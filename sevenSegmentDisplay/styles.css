@@ -1,0 +1,19 @@
+.segment {
+    width: 30px;
+    height: 100px;
+    background-color: #ddd;
+    margin: 5px;
+    display: inline-block;
+}
+
+.vertical, .horizontal {
+    border-radius: 5px;
+}
+
+.horizontal {
+    transform: rotate(90deg);
+}
+
+.active {
+    background-color: #333;
+}
