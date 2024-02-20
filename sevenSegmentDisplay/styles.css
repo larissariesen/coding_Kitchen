@@ -1,112 +1,155 @@
 .grid {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(2, 1fr);
+    grid-column-gap: 15px;
     grid-row-gap: 5px;
     height: 500px;
-    width: 250px;
+    width: 1000px;
 }
 
+/*Boxes*/
 #box1 {
     grid-column: 1;
     grid-row: 1;
     border: lightgrey 10px solid;
 }
-
 #box2 {
     grid-column: 1;
     grid-row: 2;
     border: lightgrey 10px solid;
     border-top: none;
 }
+#box3 {
+    grid-column: 2;
+    grid-row: 1;
+    border: lightgrey 10px solid;
+}
+#box4 {
+    grid-column: 2;
+    grid-row: 2;
+    border: lightgrey 10px solid;
+    border-top: none;
+}
+#box5 {
+    grid-column: 3;
+    grid-row: 1;
+    border: lightgrey 10px solid;
+}
+#box6 {
+    grid-column: 3;
+    grid-row: 2;
+    border: lightgrey 10px solid;
+    border-top: none;
+}
+#box7 {
+    grid-column: 4;
+    grid-row: 1;
+    border: lightgrey 10px solid;
+}
+#box8 {
+    grid-column: 4;
+    grid-row: 2;
+    border: lightgrey 10px solid;
+    border-top: none;
+}
 
-#box1.zero_1{
+/*Numbers*/
+#box1.zero_1, #box3.zero_1, #box5.zero_1, #box7.zero_1 {
     border-top: 10px solid darkred;
     border-right: 10px solid darkred;
     border-left: 10px solid darkred;
 }
-#box2.zero_2{
+#box2.zero_2, #box4.zero_2, #box6.zero_2, #box8.zero_2{
     border-bottom: 10px solid darkred;
     border-right: 10px solid darkred;
     border-left: 10px solid darkred;
 }
 
-#box1.one_1{
+#box1.one_1, #box3.one_1, #box5.one_1, #box7.one_1 {
     border-right: 10px solid darkred;
 }
-#box2.one_2{
+#box2.one_2, #box4.one_2, #box6.one_2, #box8.one_2{
     border-right: 10px solid darkred;
 }
-#box1.two_1{
+
+#box1.two_1, #box3.two_1, #box5.two_1, #box7.two_1 {
     border-top: 10px solid darkred;
     border-right: 10px solid darkred;
     border-bottom: 10px solid darkred;
 }
-#box2.two_2{
+#box2.two_2, #box4.two_2, #box6.two_2, #box8.two_2{
     border-left: 10px solid darkred;
     border-bottom: 10px solid darkred;
 }
-#box1.three_1{
+
+#box1.three_1, #box3.three_1, #box5.three_1, #box7.three_1 {
     border-right: 10px solid darkred;
     border-bottom: 10px solid darkred;
     border-top: 10px solid darkred;
 }
-#box2.three_2{
+#box2.three_2, #box4.three_2, #box6.three_2, #box8.three_2{
     border-right: 10px solid darkred;
     border-bottom: 10px solid darkred;
 }
-#box1.four_1{
+
+#box1.four_1, #box3.four_1, #box5.four_1, #box7.four_1 {
     border-left: 10px solid darkred;
     border-right: 10px solid darkred;
     border-bottom: 10px solid darkred;
 }
-#box2.four_2{
+#box2.four_2, #box4.four_2, #box6.four_2, #box8.four_2{
     border-right: 10px solid darkred;
 }
-#box1.five_1{
+
+#box1.five_1, #box3.five_1, #box5.five_1, #box7.five_1 {
     border-top: 10px solid darkred;
     border-left: 10px solid darkred;
     border-bottom: 10px solid darkred;
 }
-#box2.five_2{
+#box2.five_2, #box4.five_2, #box6.five_2, #box8.five_2{
     border-right: 10px solid darkred;
     border-bottom: 10px solid darkred;
 }
-#box1.six_1{
+
+#box1.six_1, #box3.six_1, #box5.six_1, #box7.six_1 {
     border-top: 10px solid darkred;
     border-left: 10px solid darkred;
     border-bottom: 10px solid darkred;
 }
-#box2.six_2{
+#box2.six_2, #box4.six_2, #box6.six_2, #box8.six_2{
     border-right: 10px solid darkred;
     border-left: 10px solid darkred;
     border-bottom: 10px solid darkred;
 }
-#box1.seven_1{
+
+#box1.seven_1, #box3.seven_1, #box5.seven_1, #box7.seven_1 {
     border-top: 10px solid darkred;
     border-right: 10px solid darkred;
 }
-#box2.seven_2{
+#box2.seven_2, #box4.seven_2, #box6.seven_2, #box8.seven_2{
     border-right: 10px solid darkred;
 }
-#box1.eight_1{
+
+#box1.eight_1, #box3.eight_1, #box5.eight_1, #box7.eight_1 {
     border-top: 10px solid darkred;
     border-bottom: 10px solid darkred;
     border-left: 10px solid darkred;
     border-right: 10px solid darkred;
 }
-#box2.eight_2{
+#box2.eight_2, #box4.eight_2, #box6.eight_2, #box8.eight_2{
     border-right: 10px solid darkred;
     border-left: 10px solid darkred;
     border-bottom: 10px solid darkred;
 }
-#box1.nine_1{
+
+#box1.nine_1, #box3.nine_1, #box5.nine_1, #box7.nine_1 {
     border-top: 10px solid darkred;
     border-left: 10px solid darkred;
     border-right: 10px solid darkred;
     border-bottom: 10px solid darkred;
 }
-#box2.nine_2{
+#box2.nine_2, #box4.nine_2, #box6.nine_2, #box8.nine_2{
     border-right: 10px solid darkred;
     border-bottom: 10px solid darkred;
 }
