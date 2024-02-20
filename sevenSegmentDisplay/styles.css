@@ -1,19 +1,112 @@
-.segment {
-    width: 30px;
-    height: 100px;
-    background-color: #ddd;
-    margin: 5px;
-    display: inline-block;
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    grid-row-gap: 5px;
+    height: 500px;
+    width: 250px;
 }
 
-.vertical, .horizontal {
-    border-radius: 5px;
+#box1 {
+    grid-column: 1;
+    grid-row: 1;
+    border: dimgrey 10px solid;
 }
 
-.horizontal {
-    transform: rotate(90deg);
+#box2 {
+    grid-column: 1;
+    grid-row: 2;
+    border: dimgrey 10px solid;
+    border-top: none;
 }
 
-.active {
-    background-color: #333;
+#box1.zero_1{
+    border-top: 10px solid darkred;
+    border-right: 10px solid darkred;
+    border-left: 10px solid darkred;
+}
+#box2.zero_2{
+    border-bottom: 10px solid darkred;
+    border-right: 10px solid darkred;
+    border-left: 10px solid darkred;
+}
+
+#box1.one_1{
+    border-right: 10px solid darkred;
+}
+#box2.one_2{
+    border-right: 10px solid darkred;
+}
+#box1.two_1{
+    border-top: 10px solid darkred;
+    border-right: 10px solid darkred;
+    border-bottom: 10px solid darkred;
+}
+#box2.two_2{
+    border-left: 10px solid darkred;
+    border-bottom: 10px solid darkred;
+}
+#box1.three_1{
+    border-right: 10px solid darkred;
+    border-bottom: 10px solid darkred;
+    border-top: 10px solid darkred;
+}
+#box2.three_2{
+    border-right: 10px solid darkred;
+    border-bottom: 10px solid darkred;
+}
+#box1.four_1{
+    border-left: 10px solid darkred;
+    border-right: 10px solid darkred;
+    border-bottom: 10px solid darkred;
+}
+#box2.four_2{
+    border-right: 10px solid darkred;
+}
+#box1.five_1{
+    border-top: 10px solid darkred;
+    border-left: 10px solid darkred;
+    border-bottom: 10px solid darkred;
+}
+#box2.five_2{
+    border-right: 10px solid darkred;
+    border-bottom: 10px solid darkred;
+}
+#box1.six_1{
+    border-top: 10px solid darkred;
+    border-left: 10px solid darkred;
+    border-bottom: 10px solid darkred;
+}
+#box2.six_2{
+    border-right: 10px solid darkred;
+    border-left: 10px solid darkred;
+    border-bottom: 10px solid darkred;
+}
+#box1.seven_1{
+    border-top: 10px solid darkred;
+    border-right: 10px solid darkred;
+}
+#box2.seven_2{
+    border-right: 10px solid darkred;
+}
+#box1.eight_1{
+    border-top: 10px solid darkred;
+    border-bottom: 10px solid darkred;
+    border-left: 10px solid darkred;
+    border-right: 10px solid darkred;
+}
+#box2.eight_2{
+    border-right: 10px solid darkred;
+    border-left: 10px solid darkred;
+    border-bottom: 10px solid darkred;
+}
+#box1.nine_1{
+    border-top: 10px solid darkred;
+    border-left: 10px solid darkred;
+    border-right: 10px solid darkred;
+    border-bottom: 10px solid darkred;
+}
+#box2.nine_2{
+    border-right: 10px solid darkred;
+    border-bottom: 10px solid darkred;
 }
