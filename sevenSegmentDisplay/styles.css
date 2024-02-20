@@ -10,13 +10,13 @@
 #box1 {
     grid-column: 1;
     grid-row: 1;
-    border: dimgrey 10px solid;
+    border: lightgrey 10px solid;
 }
 
 #box2 {
     grid-column: 1;
     grid-row: 2;
-    border: dimgrey 10px solid;
+    border: lightgrey 10px solid;
     border-top: none;
 }
 

@@ -1,8 +1,16 @@
-function incrementNum(){
-    // todo - updateNumber with input if decrease or increase button is clicked
+function updateNumber(increase){
     let currentNum = parseInt(document.getElementById("display").innerText);
-    if (currentNum !== 9){
+    if (currentNum === 9 && increase === true) {
+        currentNum = 0;
+    }
+    else if (currentNum === 0 && increase === false) {
+        currentNum = 9;
+    }
+    else if (increase === true) {
         currentNum++;
+    }
+    else {
+        currentNum--;
     }
     switch (currentNum) {
         case 1:
@@ -55,12 +63,5 @@ function incrementNum(){
             document.getElementById("box1").className = "zero_1";
             document.getElementById("box2").className = "zero_2";
             break;
-    }
-}
-
-function decrementNum(){
-    const currentNum = parseInt(document.getElementById("display").innerText);
-    if(currentNum !== 0){
-        document.getElementById("display").innerText = currentNum -1;
     }
 }
