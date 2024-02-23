@@ -10,7 +10,7 @@ let allTask = [];
 function addTask() {
     const taskDesc = document.getElementById("taskName").value;
 
-    if(taskDesc === ""){
+    if (taskDesc === "") {
         showError("Input cannot be empty");
     } else {
         removeErrorElement();
@@ -26,54 +26,34 @@ function addTask() {
 
 function showAllTasks() {
     let taskList = document.getElementById("tasks");
-    taskList.innerHTML = "";
     allTask.forEach((task) => {
-        let taskItemL = createTaskItem(task);
-        let taskItem = document.createElement("li");
-        taskItem.innerHTML = task.desc;
-        taskList.appendChild(taskItem);
-        if(task.done) {
+        let taskItem = document.createElement("div");
+        taskItem.innerHTML = createTaskItem(task);
+        if (task.done) {
             taskItem.style.textDecoration = "line-through";
+        }
+        if (taskItem.children.length > 0) {
+            taskList.appendChild(taskItem);
         }
     });
 }
+
 function createTaskItem(task) {
-    let taskItem = document.createElement("div");
-    let listItem = document.createElement("li");
-    listItem.innerHTML = task.desc;
-
-    let button = document.createElement("button");
-    button.innerHTML = "Mark Done";
-    button.onclick = function() {
-        task.done = !task.done;
-        showAllTasks();
-    }
-
-    listItem.appendChild(button);
-    taskItem.appendChild(listItem);
-
-    return taskItem;
+    return `
+        <ul>
+            <li>
+                ${task.desc} <button onclick="markTaskDone(${task.id})">Done</button>
+            </li>
+        </ul>
+    `
 }
 
-/*function createTaskItem(task) {
-    let taskItem = document.createElement("div");
-    let listItem = document.createElement("li")
-    taskItem.appendChild(listItem);
-    let button = document.createElement("button");
-    button.innerHTML = "Mark Done";
-    button.onclick = function() {
-        task.done = !task.done;
-        showAllTasks();
-    }
-    listItem.appendChild(button);
-    taskItem.appendChild(document.createElement("li"));
-    taskItem.innerHTML = task.desc;
-    taskItem.onclick = function() {
-        task.done = !task.done;
-        showAllTasks();
-    }
-    return taskItem;
-}*/
+function markTaskDone(taskId) {
+    //Fixme creates a new Todo with done = true and does not overwrite..
+    const taskIndex = allTask.findIndex(t => t.id === taskId);
+    allTask[taskIndex].done = !allTask[taskIndex].done
+    showAllTasks();
+}
 
 // ErrorHandling
 function showError(error) {
@@ -84,6 +64,6 @@ function removeErrorElement() {
     document.getElementById("errors").innerHTML = "";
 }
 
-window.onload = function() {
+window.onload = function () {
     showAllTasks();
 }
