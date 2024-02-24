@@ -14,13 +14,15 @@
 
 <div id="formContainer">
     <label for="taskName">Task name:</label>
-    <input type="text" id="taskName" name="taskName">
+    <input type="text" id="taskName" name="taskName" placeholder="...">
     <button onclick="addTask()">Add task</button>
 </div>
 
 <div id="tasks"></div>
 
 <div id="errors"></div>
+
+<button onclick="clearTodoList()" style="display: none" id="clearList">Clear List</button>
 
 </body>
 </html>

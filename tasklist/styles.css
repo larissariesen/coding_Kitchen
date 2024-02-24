@@ -1,0 +1,15 @@
+body {
+    font-family: "Dubai Light", sans-serif;
+    font-size: 20px;
+}
+
+input {
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+    text-align: right;
+}
+
+button {
+    width: 100px;
+}
