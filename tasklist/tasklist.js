@@ -32,21 +32,25 @@ function showAllTasks() {
         taskItem.innerHTML = createTaskItem(task);
         if (task.done) {
             taskItem.style.textDecoration = "line-through";
+            taskItem.className = "doneTask";
         }
         if (taskItem.children.length > 0) {
             taskList.appendChild(taskItem);
         }
     });
     if (allTask.length > 0) document.getElementById("clearList").style.display = "block";
+    else document.getElementById("clearList").style.display = "none";
 }
 
 function createTaskItem(task) {
     return `
         <ul>
             <li>
-                ${task.desc} 
-                <button onclick="markTaskDone(${task.id})">Done</button>
-                <button onclick="deleteTask(${task.id})">X</button>
+                ${task.desc}
+                <div>
+                    <button onclick="markTaskDone(${task.id})" class="imgBtn"><img src="img/done.png"></button>
+                    <button onclick="deleteTask(${task.id})" class="imgBtn"><img src="img/delete.png"></button>
+                </div>
             </li>
         </ul>
     `

@@ -1,6 +1,11 @@
 body {
-    font-family: "Dubai Light", sans-serif;
+    background-color: ghostwhite;
+    font-family: 'Dubai Light', sans-serif;
     font-size: 20px;
+}
+
+h1 {
+    color: darkcyan;
 }
 
 input {
@@ -8,8 +13,78 @@ input {
     border-bottom: 1px solid black;
     outline: none;
     text-align: right;
+    background-color: transparent;
+    padding: 8px;
+    font-size: 20px;
 }
 
 button {
-    width: 100px;
+    background-color: darkCyan;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background-color: darkSlateGray;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    background-color: lightsteelblue;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li button {
+    margin-left: 10px;
+    background-color: darkCyan;
+}
+
+li button:hover {
+    background-color: #007a87;
+}
+
+.doneTask li {
+    background-color: #9de39d
+}
+
+.imgBtn{
+    background-color: transparent;
+}
+
+.imgBtn:hover{
+    background-color: transparent;
+}
+
+img {
+    width: 25px;
+    height: 25px;
+}
+
+#errors {
+    color: darkred;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+#errors li {
+    background-color: transparent;
+}
+
+#clearList {
+    margin-top: 20px;
+}
+
+#tasks {
+    margin-top: 20px;
 }
