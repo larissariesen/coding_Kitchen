@@ -2,6 +2,7 @@
 * {
 *   id: number,
 *   desc: string,
+*   dueDate: Date
 *   done: boolean
 * }*/
 
@@ -9,6 +10,12 @@ let allTask = [];
 
 function addTask() {
     const taskDesc = document.getElementById("taskName").value;
+    const dueDate = document.getElementById("dueDate").value
+    let formattedDate;
+    if(dueDate) {
+        const selectedDate = new Date(dueDate);
+        formattedDate = selectedDate.getDate() + '.' + (selectedDate.getMonth() + 1) + '.' + selectedDate.getFullYear();
+    }
 
     if (taskDesc === "") {
         showError("Input cannot be empty");
@@ -17,10 +24,12 @@ function addTask() {
         allTask.push({
             id: allTask.length + 1,
             desc: taskDesc,
+            dueDate: formattedDate || "anytime",
             done: false
         });
     }
     document.getElementById("taskName").value = "";
+    document.getElementById("dueDate").value = "";
     showAllTasks();
 }
 
@@ -46,7 +55,9 @@ function createTaskItem(task) {
     return `
         <ul>
             <li>
-                ${task.desc}
+                <div>
+                    <b>${task.desc}</b> - Duedate: <b>${task.dueDate}</b>
+                </div>
                 <div>
                     <button onclick="markTaskDone(${task.id})" class="imgBtn"><img src="img/done.png"></button>
                     <button onclick="deleteTask(${task.id})" class="imgBtn"><img src="img/delete.png"></button>
@@ -90,4 +101,5 @@ function removeErrorElement() {
 
 window.onload = function () {
     showAllTasks();
+    document.getElementById('dueDate').min = new Date().toISOString().split('T')[0];
 }
