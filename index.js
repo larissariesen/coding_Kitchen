@@ -1,5 +1,5 @@
 let subPages = [
-    {title: "Seven Segment Display", href: "sevenSegmentDisplay/sevenSegmentDisplay,html"},
+    {title: "Seven Segment Display", href: "sevenSegmentDisplay/sevenSegmentDisplay.html"},
     {title: "TaskList", href: "tasklist/taskList.html"}
 ]
 
@@ -13,17 +13,11 @@ const showSubPageCard = () => {
 }
 
 const createSubPageCard = (subPage) => {
-    const cardDiv = document.createElement('div');
     const aElement = document.createElement('a');
-
-    cardDiv.className = 'subPageCard';
-
     aElement.href = subPage.href;
     aElement.textContent = subPage.title;
 
-    cardDiv.appendChild(aElement);
-
-    return cardDiv;
+    return aElement;
 }
 
 window.onload = () => {

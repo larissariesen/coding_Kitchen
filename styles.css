@@ -1,10 +1,35 @@
 body {
-    background-color: ghostwhite;
+    background-color: darkslategrey;
     font-family: 'Dubai Light', sans-serif;
     font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    min-height: 95vh;
 }
 
-.subPageCard {
+h1 {
+    width: 100%;
+    text-align: center;
+    line-height: 150px;
+    font-size: 50px;
+}
+
+.content {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.subPages {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+
+a {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -16,9 +41,7 @@ body {
     width: 150px;
     height: 100px;
     margin: 10px;
-}
-
-a {
     text-decoration: none;
     color: black;
+    background-color: ghostwhite;
 }
