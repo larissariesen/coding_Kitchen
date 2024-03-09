@@ -1,6 +1,7 @@
 let subPages = [
     {title: "Seven Segment Display", href: "sevenSegmentDisplay/sevenSegmentDisplay.html"},
-    {title: "TaskList", href: "tasklist/taskList.html"}
+    {title: "TaskList", href: "tasklist/taskList.html"},
+    {title: "Quiz", href: "quiz/quiz.html"}
 ]
 
 const showSubPageCard = () => {
