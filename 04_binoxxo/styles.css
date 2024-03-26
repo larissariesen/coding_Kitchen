@@ -1,8 +1,17 @@
-#binoxxoContainer.div:nth-child(1) {
+#binoxxoContainer {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    width: 300px;
+    height: 300px;
+}
+.cell {
+    background-color: white;
+    border: 1px solid black;
+    width: calc(300px / 6);
+    height: calc(300px / 6);
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 50px;
-    border: 1px solid black;
+    font-size: 1.5em;
 }
