@@ -9,7 +9,7 @@ const formula1Quiz = [
         options: ["Mercedes", "Ferrari", "Red Bull Racing", "McLaren"],
         answer: 1, // Correct answer index (B)
     },
-    /*{
+    {
         question: "What is the iconic circuit known as 'La Sarthe,' famous for hosting the 24 Hours of Le Mans, not used for Formula 1 races?",
         options: ["Circuit de Spa-Francorchamps", "Circuit de Monaco", "Circuit de Barcelona-Catalunya", "Circuit de Paul Ricard"],
         answer: 3, // Correct answer index (D)
@@ -23,7 +23,7 @@ const formula1Quiz = [
         question: "In what year did Ayrton Senna tragically lose his life during a race?",
         options: ["1990", "1992", "1994", "1996"],
         answer: 2, // Correct answer index (C)
-    }*/
+    }
 ];
 let playerAnswers = [];
 
@@ -109,9 +109,14 @@ const showResultInPercentage = (correctPercentage) => {
     const radius = document.getElementsByTagName('circle')[0].getAttribute('r');
     const circumference = 2 * Math.PI * radius;
     const dashLength = (correctPercentage / 100) * circumference;
-    const strokeDasharray = `${dashLength}, ${circumference - dashLength}`;
+    const emptyLength = circumference - dashLength;
+    const offset = circumference * 0.25; // so the circle start on 12o'clock
+    const strokeDasharray = `${dashLength} ${emptyLength}`;
+    const strokeDashoffset = offset;
+
     document.getElementById('percentage-text').textContent = `${correctPercentage}%`;
     document.getElementById('success-value').setAttribute('stroke-dasharray', strokeDasharray);
+    document.getElementById('success-value').setAttribute('stroke-dashoffset', strokeDashoffset);
 }
 
 const showResultItem = (answer, isCorrect, correctAnswer) => {
