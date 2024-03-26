@@ -82,12 +82,45 @@
     }
 
     const showResults = () => {
-        const questionContainer = document.getElementById('result');
+        const resultContainer = document.getElementById('result');
         const resultElement = document.createElement('h2');
         resultElement.textContent = "Results";
-        questionContainer.appendChild(resultElement);
-        playerAnswers.forEach((it, index) => showResultItem(it, formula1Quiz[index].answer === it));
+        resultContainer.appendChild(resultElement);
+
+        let correctCount = 0; // Counter for correct answers
+
+        playerAnswers.forEach((answer, index) => {
+            const isCorrect = formula1Quiz[index].answer === answer;
+            showResultItem(answer, isCorrect);
+
+            if (isCorrect) {
+                correctCount++;
+            }
+        });
+        const correctPercentage = (correctCount / formula1Quiz.length) * 100;
+        playerAnswers.forEach((answer, index) => {
+            const isCorrect = formula1Quiz[index].answer === answer;
+            showResultItem(answer, isCorrect);
+
+            if (isCorrect) {
+                correctCount++;
+            }
+        });
+        const circle = showResultInPercentage(correctPercentage);
+        resultContainer.appendChild(circle);
+
         document.getElementsByClassName('resetButton')[0].style.display = 'block';
+    }
+
+    const showResultInPercentage = (correctPercentage) => {
+        const svgElement = document.createElement('svg');
+        const circle1Element = document.createElement('circle')
+        const circle2Element = document.createElement('circle')
+        circle1Element.classList.add('bg');
+        circle2Element.classList.add('fg');
+        svgElement.appendChild(circle1Element);
+        svgElement.appendChild(circle2Element);
+        return svgElement;
     }
 
     const showResultItem = (answer, correct) => {
