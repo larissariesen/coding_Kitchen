@@ -18,6 +18,7 @@ button {
     border: none;
     border-radius: 4px;
     margin-top: 10px;
+    display: block;
 }
 
 .quiz-container {
@@ -67,4 +68,26 @@ p {
 
 .resetButton.show {
     opacity: 1;
+}
+
+.answer-container {
+    display: inline-block;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 20px;
+    width: calc(50% - 15px);
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.answer-container.selected {
+    background-color: cornflowerblue;
+    color: white;
+}
+
+.answer-container:hover {
+    background-color: #ddd;
 }

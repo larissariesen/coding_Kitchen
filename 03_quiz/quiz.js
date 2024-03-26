@@ -30,7 +30,7 @@ let playerAnswers = [];
 let currentQuestionIndex = 0;
 
 const displayQuestion = () => {
-    const questionContainer = document.querySelector('form');
+    const questionContainer = document.querySelector('.question-form');
     const currentQuestion = formula1Quiz[currentQuestionIndex];
 
     if (currentQuestion) {
@@ -41,23 +41,22 @@ const displayQuestion = () => {
         questionContainer.appendChild(questionElement);
 
         currentQuestion.options.forEach((option, index) => {
-            const radioInput = document.createElement('input');
-            radioInput.type = 'radio';
-            radioInput.name = 'answer';
-            radioInput.value = index;
-            radioInput.id = `option${index}`
+            const answerContainer = document.createElement('div');
+            answerContainer.classList.add('answer-container');
+            answerContainer.textContent = option;
+            answerContainer.dataset.index = index;
 
-            const optionLabel = document.createElement('label');
-            optionLabel.textContent = option;
-            // so text is clickable as well - needs to match witch id of radioBtn
-            optionLabel.htmlFor = `option${index}`;
+            answerContainer.addEventListener('click', () => {
+                const selectedContainers = document.querySelectorAll('.answer-container.selected');
+                selectedContainers.forEach(container => {
+                    container.classList.remove('selected');
+                });
+                answerContainer.classList.add('selected');
+            });
 
-            questionContainer.appendChild(radioInput);
-            questionContainer.appendChild(optionLabel);
-            questionContainer.appendChild(document.createElement('br'));
+            questionContainer.appendChild(answerContainer);
         });
 
-        // Add button to navigate to the next question
         const nextButton = document.createElement('button');
         nextButton.textContent = 'Next Question';
         nextButton.addEventListener('click', handleNextQuestion);
@@ -70,10 +69,10 @@ const displayQuestion = () => {
 }
 
 const handleNextQuestion = () => {
-    const selectedOption = document.querySelector('input[name="answer"]:checked');
-
-    if (selectedOption) {
-        playerAnswers.push(parseInt(selectedOption.value));
+    const selectedContainer = document.querySelector('.answer-container.selected');
+    if (selectedContainer) {
+        const selectedIndex = selectedContainer.dataset.index;
+        playerAnswers.push(parseInt(selectedIndex));
         currentQuestionIndex++;
         displayQuestion();
     } else {
@@ -87,11 +86,11 @@ const showResults = () => {
     resultElement.textContent = "Results";
     resultContainer.appendChild(resultElement);
 
-    let correctCount = 0; // Counter for correct answers
-
+    let correctCount = 0;
     playerAnswers.forEach((answer, index) => {
-        const isCorrect = formula1Quiz[index].answer === answer;
-        showResultItem(answer, isCorrect);
+        const answerIndex = formula1Quiz[index].answer
+        const isCorrect = answerIndex === answer;
+        showResultItem(answer, isCorrect, formula1Quiz[index].options[answerIndex]);
 
         if (isCorrect) {
             correctCount++;
@@ -115,10 +114,21 @@ const showResultInPercentage = (correctPercentage) => {
     document.getElementById('success-value').setAttribute('stroke-dasharray', strokeDasharray);
 }
 
-const showResultItem = (answer, correct) => {
+const showResultItem = (answer, isCorrect, correctAnswer) => {
     const questionContainer = document.getElementById('result');
     const resultElement = document.createElement('p');
-    resultElement.textContent = `Question ${playerAnswers.indexOf(answer) + 1}: ${correct === true ? 'Correct' : 'Wrong'}`;
+    if(isCorrect) {
+        resultElement.textContent = `Question ${playerAnswers.indexOf(answer) + 1}: Correct`;
+    } else {
+        resultElement.textContent = `Question ${playerAnswers.indexOf(answer) + 1}: Wrong - Correct Answer: ${correctAnswer}`;
+    }
+    resultElement.style.margin = '5px 0';
+    resultElement.style.padding = '10px';
+    resultElement.style.borderRadius = '5px';
+    resultElement.style.backgroundColor = isCorrect ? '#dff0d8' : '#f2dede'; // Green for correct, red for wrong
+    resultElement.style.border = '1px solid #ccc';
+    resultElement.style.color = isCorrect ? '#3c763d' : '#a94442'; // Dark green for correct, dark red for wrong
+    resultElement.style.fontWeight = 'bold';
     questionContainer.appendChild(resultElement);
 }
 
@@ -128,6 +138,7 @@ const resetQuiz = () => {
     displayQuestion();
     document.getElementById('result').innerHTML = "";
     document.getElementsByClassName('resetButton')[0].style.display = 'none';
+    document.getElementById('circle').style.display = 'none';
 }
 
 window.onload = () => {
