@@ -104,10 +104,15 @@ const showResults = () => {
 }
 
 const showResultInPercentage = (correctPercentage) => {
-    // https://dev.to/alwarg/how-to-create-an-responsive-percentage-circle-4gg7
+    // with help of https://dev.to/alwarg/how-to-create-an-responsive-percentage-circle-4gg7
     document.getElementById('circle').style.display = 'block';
-    let successValue = (correctPercentage / 100) * 660;
-    document.getElementById('success-value').setAttribute('stroke-dasharray', `${successValue}, 660`);
+
+    const radius = document.getElementsByTagName('circle')[0].getAttribute('r');
+    const circumference = 2 * Math.PI * radius;
+    const dashLength = (correctPercentage / 100) * circumference;
+    const strokeDasharray = `${dashLength}, ${circumference - dashLength}`;
+    document.getElementById('percentage-text').textContent = `${correctPercentage}%`;
+    document.getElementById('success-value').setAttribute('stroke-dasharray', strokeDasharray);
 }
 
 const showResultItem = (answer, correct) => {
@@ -123,7 +128,6 @@ const resetQuiz = () => {
     displayQuestion();
     document.getElementById('result').innerHTML = "";
     document.getElementsByClassName('resetButton')[0].style.display = 'none';
-
 }
 
 window.onload = () => {

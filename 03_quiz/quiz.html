@@ -7,20 +7,19 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<a href="../index.html">
+<a href="../index.html" class="home-link">
     <button>Home</button>
 </a>
-<h1>Quiz</h1>
-<p>This is a short Quiz of F1</p>
-<form></form>
-<div id="result">
+<div class="quiz-container">
+    <h1>Formula 1 Quiz</h1>
+    <form class="question-form"></form>
+    <div id="result"></div>
     <svg id="circle">
-        <circle r="50" cx="50%" cy="50%" stroke="gray" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="660, 660">
-        </circle>
-        <circle id="success-value" r="60" cx="50%" cy="50%" stroke="red" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="660, 660">
-        </circle>
+        <circle r="60" cx="50%" cy="50%" stroke="gray" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="660, 660"></circle>
+        <circle id="success-value" r="60" cx="50%" cy="50%" stroke="green" fill="none" stroke-width="10" stroke-linecap="round" stroke-dasharray="660, 660"></circle>
+        <text id="percentage-text" x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-size="20" fill="black"></text>
     </svg>
+    <button class="resetButton" onclick="resetQuiz()">Reset</button>
 </div>
-<button class="resetButton" onclick="resetQuiz()">Reset</button>
 </body>
 </html>
