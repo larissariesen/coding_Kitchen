@@ -1,3 +1,16 @@
 .resetButton {
     display: none;
 }
+
+#circle {
+    height: 100%;
+    display: none;
+}
+#circle-percentage {
+    position: absolute;
+    color: #444;
+    top: -3em;
+    left: 0.3em;
+    right: 0;
+    font-size: 4em;
+}
