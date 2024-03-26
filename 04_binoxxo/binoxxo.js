@@ -20,7 +20,7 @@ const solvedBinoxxo = [
 const switchedBinoxxo = initialBinoxxo[0].map((col, i) => initialBinoxxo.map(row => row[i]));
 const switchedSolvedBinoxxo = solvedBinoxxo[0].map((col, i) => solvedBinoxxo.map(row => row[i]));
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const binoxxoContainer = document.getElementById('binoxxoContainer');
 
     const generateGameBoard = (size) => {
@@ -34,7 +34,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 cell.dataset.row = i.toString();
                 cell.dataset.col = j.toString();
                 cell.textContent = switchedBinoxxo[i][j];
-                if(cell.textContent === '') {
+                if (cell.textContent === '') {
+                    cell.classList.add('clickable');
                     cell.addEventListener('click', handleCellClick);
                 } else {
                     cell.style.backgroundColor = 'lightgray';
@@ -65,32 +66,57 @@ const resetBinoxxo = () => {
     const cells = document.querySelectorAll('.cell');
     cells.forEach(cell => {
         cell.textContent = switchedBinoxxo[cell.dataset.row][cell.dataset.col];
-        if(cell.textContent === '') {
+        if (cell.textContent === '') {
             cell.style.backgroundColor = 'white';
         }
     });
+    const errorElement = document.getElementById('error');
+    errorElement.innerHTML = '';
 }
 
 const checkBinoxxo = () => {
-    let errors = 0;
+    let errorCells = [];
+    let notFinishedCells = [];
     const cells = document.querySelectorAll('.cell');
     cells.forEach(cell => {
-        if (cell.textContent !== switchedSolvedBinoxxo[cell.dataset.row][cell.dataset.col]) {
-            cell.style.backgroundColor = 'red';
-            errors++;
+        if (cell.textContent === '') {
+            notFinishedCells.push(cell);
+        } else if (cell.textContent !== switchedSolvedBinoxxo[cell.dataset.row][cell.dataset.col]) {
+            errorCells.push(cell);
         }
     });
-    if (errors === 0) {
-        alert('Congratulations! You solved the puzzle!');
-    } else {
-        alert(`There are ${errors} errors in the puzzle.`);
+    if (errorCells.length === 0 && notFinishedCells.length === 0) {
+        showSuccessElement();
+    } else if (notFinishedCells.length > 0) {
+        showNotFinishedElement(notFinishedCells);
+    } else if (notFinishedCells.length <= 0 && errorCells.length > 0) {
+        showErrorElement(errorCells);
     }
 }
 
-const checkRows = () => {
-
+const showErrorElement = (errors) => {
+    errors.forEach(cell => {
+        cell.style.backgroundColor = 'darkred';
+    });
+    const errorElement = document.getElementById('messages');
+    errorElement.innerText = `There are ${errors.length} errors in the puzzle`;
 }
 
-const checkColumns = () => {
+const showNotFinishedElement = (cells) => {
+    cells.forEach(cell => {
+        cell.style.backgroundColor = 'lightcoral';
+    });
+    setTimeout(() => {
+        cells.forEach(cell => {
+            cell.style.backgroundColor = 'white';
+        });
+    }, 3000);
+    const errorElement = document.getElementById('messages');
+    errorElement.innerText = `There are cells that are not finished yet!`;
+}
 
+const showSuccessElement = () => {
+    // TODO - show confetti (or similar) instead
+    const successElement = document.getElementById('messages');
+    successElement.innerText = `Congratulations! You solved the puzzle!`;
 }
