@@ -70,7 +70,7 @@ const resetBinoxxo = () => {
             cell.style.backgroundColor = 'white';
         }
     });
-    const errorElement = document.getElementById('error');
+    const errorElement = document.getElementById('messages');
     errorElement.innerHTML = '';
 }
 
@@ -96,8 +96,13 @@ const checkBinoxxo = () => {
 
 const showErrorElement = (errors) => {
     errors.forEach(cell => {
-        cell.style.backgroundColor = 'darkred';
+        cell.style.backgroundColor = 'red';
     });
+    setTimeout(() => {
+        errors.forEach(cell => {
+            cell.style.backgroundColor = 'white';
+        });
+    }, 3000);
     const errorElement = document.getElementById('messages');
     errorElement.innerText = `There are ${errors.length} errors in the puzzle`;
 }
@@ -116,7 +121,32 @@ const showNotFinishedElement = (cells) => {
 }
 
 const showSuccessElement = () => {
-    // TODO - show confetti (or similar) instead
     const successElement = document.getElementById('messages');
+    successElement.style.color = 'green';
     successElement.innerText = `Congratulations! You solved the puzzle!`;
+
+    const confettiContainer = document.getElementById('confetti');
+
+    // Create and append multiple confetti elements
+    for (let i = 0; i < 200; i++) {
+        const confetti = document.createElement('div');
+        confetti.classList.add('confetti');
+        confetti.style.left = `${Math.random() * 100}%`; // Random horizontal position
+        confetti.style.animationDelay = `${Math.random() * 3}s`; // Random animation delay
+
+        confetti.style.backgroundColor = getRandomColor();
+
+        confettiContainer.appendChild(confetti);
+    }
+}
+
+// Function to generate a random color in hexadecimal format
+// ChatGpt
+const getRandomColor = () => {
+    const letters = '0123456789ABCDEF';
+    let color = '#';
+    for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
 }
