@@ -1,0 +1,16 @@
+.navigation {
+    display: flex;
+}
+
+.tab {
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-decoration: none;
+    color: #333;
+}
+
+.tab:hover {
+    background-color: #f0f0f0;
+}
