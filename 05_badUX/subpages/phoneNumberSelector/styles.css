@@ -6,6 +6,7 @@ body {
     height: 100vh;
     margin: 0;
     position: relative;
+    font-family: Arial, sans-serif;
 }
 
 h1 {
@@ -19,8 +20,57 @@ h1 {
     text-align: center;
 }
 
+#phoneNr.invalid {
+    border: 2px solid darkred;
+    color: white;
+    background-color: darkred;
+}
+
+#phoneNr.valid {
+    border: 2px solid seagreen;
+    color: white;
+    background-color: seagreen;
+}
+
 .home-link {
     position: absolute;
     top: 10px;
     left: 10px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+}
+
+.input-group button {
+    margin: 10px;
+}
+
+#increaseButton {
+    order: -1;
+}
+
+#increaseButton, #decreaseButton {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
 }

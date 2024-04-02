@@ -11,6 +11,11 @@
     <button>Back</button>
 </a>
 <h1>Phone Number Picker</h1>
-<input type="number" id="phoneNr" placeholder="Phone number" min="0">
+<p>Leave out the leading Zero</p>
+<div class="input-group">
+    <button id="increaseButton" onclick="increase()">+</button>
+    <input type="number" id="phoneNr" placeholder="Phone number" min="0" disabled>
+    <button id="decreaseButton" onclick="decrease()">-</button>
+</div>
 </body>
 </html>
