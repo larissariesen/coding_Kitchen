@@ -1,28 +1,23 @@
-.spinner {
-    width: 200px;
-    margin: 20px auto;
-    text-align: center;
-}
-
-.options {
+.container {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 
 .option {
-    width: 45%;
-    border: 1px solid #ccc;
-    padding: 10px;
-}
-
-#spinButton {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
-}
-
-#result {
-    margin-top: 20px;
-    font-size: 18px;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
     font-weight: bold;
+    color: #333;
+    background-color: #fff;
+    border: 2px solid #999;
+    border-radius: 50%;
+    box-sizing: border-box;
+    transition: transform 4s ease-in-out;
 }
