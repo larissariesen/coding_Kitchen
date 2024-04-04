@@ -61,9 +61,9 @@ button:hover {
     margin: 10px;
 }
 
-#increaseButton {
+/*#increaseButton {
     order: -1;
-}
+}*/
 
 #increaseButton, #decreaseButton {
     background-color: black;

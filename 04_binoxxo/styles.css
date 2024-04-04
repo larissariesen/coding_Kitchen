@@ -104,6 +104,6 @@ button:hover {
     }
     100% {
         opacity: 0;
-        transform: translateY(500px); /* Adjust distance confetti falls */
+        transform: translateY(100vh); /* Adjust distance confetti falls */
     }
 }
