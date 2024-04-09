@@ -1,14 +1,20 @@
 .container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    height: 100vh;
+    align-items: center;
+    flex-direction: column;
+}
+
+.split-square {
+    position: relative;
+    width: 400px;
+    height: 200px;
+    margin-bottom: 10px;
 }
 
 .option {
-    width: 100px;
-    height: 100px;
+    width: 50%;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -17,7 +23,19 @@
     color: #333;
     background-color: #fff;
     border: 2px solid #999;
-    border-radius: 50%;
     box-sizing: border-box;
-    transition: transform 4s ease-in-out;
+    transition: transform 0.5s ease-in-out;
+    position: absolute;
+}
+
+.option1 {
+    left: 0;
+}
+
+.option2 {
+    right: 0;
+}
+
+#spinButton {
+    margin-bottom: 10px;
 }

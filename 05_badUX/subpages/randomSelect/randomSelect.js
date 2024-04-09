@@ -3,23 +3,25 @@ const spin = () => {
     const options = document.querySelectorAll('.option');
     const randomIndex = Math.floor(Math.random() * options.length);
     const selectedOption = options[randomIndex].textContent;
-    const intervalId = setInterval(() => {
-        options[0].style.backgroundColor = 'green';
-        options[1].style.backgroundColor = 'transparent';
-    }, 300);
+    let currentIndex = 0;
 
-    const intervalId2 = setInterval(() => {
-        options[1].style.backgroundColor = 'green';
-        options[0].style.backgroundColor = 'transparent';
-    }, 300);
+    const intervalId = setInterval(() => {
+        options.forEach((option, index) => {
+            if (index === currentIndex) {
+                option.style.backgroundColor = currentIndex === 1 ? 'hotpink' : 'deepskyblue';
+            } else {
+                option.style.backgroundColor = 'transparent';
+            }
+        });
+        currentIndex = (currentIndex + 1) % options.length;
+    }, 200);
 
     setTimeout(() => {
         clearInterval(intervalId);
-        clearInterval(intervalId2);
         options.forEach(option => {
             option.style.backgroundColor = 'transparent';
         });
-        options[randomIndex].style.backgroundColor = 'green';
+        options[randomIndex].style.backgroundColor = randomIndex === 1 ? 'hotpink' : 'deepskyblue';
         resultDiv.textContent = `Result: ${selectedOption}`;
     }, 3000);
 }
