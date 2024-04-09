@@ -1,3 +1,18 @@
+body {
+    background-color: ghostwhite;
+    font-family: 'Dubai Light', sans-serif;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 .container {
     display: flex;
     justify-content: center;
@@ -21,21 +36,31 @@
     font-size: 24px;
     font-weight: bold;
     color: #333;
-    background-color: #fff;
-    border: 2px solid #999;
     box-sizing: border-box;
     transition: transform 0.5s ease-in-out;
     position: absolute;
 }
 
 .option1 {
+    border: 2px solid black;
+    border-bottom-left-radius: 20%;
+    border-top-left-radius: 20%;
     left: 0;
 }
 
 .option2 {
+    border: 2px solid black;
+    border-left: 1px solid black;
+    border-bottom-right-radius: 20%;
+    border-top-right-radius: 20%;
     right: 0;
 }
 
 #spinButton {
     margin-bottom: 10px;
+    background-color: #666666;
+}
+
+#result {
+    font-size: 25px;
 }

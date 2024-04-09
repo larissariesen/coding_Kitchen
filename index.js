@@ -3,7 +3,8 @@ let subPages = [
     {title: "TaskList", href: "02_tasklist/taskList.html"},
     {title: "Quiz", href: "03_quiz/quiz.html"},
     {title: "Binoxxo", href: "04_binoxxo/binoxxo.html"},
-    {title: "Bad UX", href: "05_badUX/badUX.html"}
+    {title: "Bad UX", href: "05_badUX/badUX.html"},
+    {title: "Navigation", href: "06_tabbing/tabbing.html"},
 ]
 
 const showSubPageCard = () => {

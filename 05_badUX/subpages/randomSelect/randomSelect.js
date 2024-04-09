@@ -4,6 +4,7 @@ const spin = () => {
     const randomIndex = Math.floor(Math.random() * options.length);
     const selectedOption = options[randomIndex].textContent;
     let currentIndex = 0;
+    resultDiv.innerText = '';
 
     const intervalId = setInterval(() => {
         options.forEach((option, index) => {

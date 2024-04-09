@@ -1,3 +1,8 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 10px;
+}
+
 .move-me {
     position: absolute;
     top: 50%;
@@ -6,6 +11,7 @@
     background-color: seagreen;
     height: 50px;
     width: 150px;
+    transition-duration: 0.5s;
 }
 
 button {
