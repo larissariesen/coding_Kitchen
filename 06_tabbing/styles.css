@@ -13,7 +13,6 @@ body {
     margin-bottom: auto;
 }
 
-/* Style the tab buttons */
 .tablink {
     background-color: #555;
     color: white;
@@ -25,22 +24,20 @@ body {
     font-size: 17px;
 }
 
-/* Change background color of buttons on hover */
 .tablink:hover {
     background-color: #777;
 }
 
-/* Set default styles for tab content */
 .tabcontent {
     color: white;
-    display: none;
+    opacity: 0;
     padding: 50px;
     text-align: center;
     flex: 1;
     background-color: #f1f1f1;
+    transition: opacity 0.5s ease-in-out;
 }
 
-/* Style each tab content individually */
 #first {background-color:#1A7D61;}
 #snd {background-color:#A80874;}
 #third {background-color:#16425B;}
@@ -54,6 +51,7 @@ button {
     margin: 5px;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 1s ease-in-out;
 }
 
 button:hover {

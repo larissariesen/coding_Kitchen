@@ -1,8 +1,8 @@
-function openCity(cityName, elmnt, color) {
+function openCity(cityName, el, color) {
     let i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
+        tabcontent[i].style.opacity = "0";
     }
 
     tablinks = document.getElementsByClassName("tablink");
@@ -10,8 +10,8 @@ function openCity(cityName, elmnt, color) {
         tablinks[i].style.backgroundColor = "";
     }
 
-    document.getElementById(cityName).style.display = "block";
-    elmnt.style.backgroundColor = color;
+    document.getElementById(cityName).style.opacity = "1";
+    el.style.backgroundColor = color;
 }
 
 window.onload = () => {
