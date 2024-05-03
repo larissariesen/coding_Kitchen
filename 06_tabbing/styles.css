@@ -7,10 +7,13 @@ body {
     height: 100vh;
 }
 
-.buttonbar {
+/*https://www.w3schools.com/css/tryit.asp?filename=trycss_grid_layout_named*/
+.grid-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    margin-bottom: auto;
+    grid-template-areas:
+    'btn'
+    'main';
+    gap: 10px;
 }
 
 .tablink {
@@ -24,8 +27,25 @@ body {
     font-size: 17px;
 }
 
+.tablink :first-child {
+    grid-area: btn;
+}
+.tablink :nth-child(2) {
+    grid-area: btn;
+}
+.tablink :nth-child(3) {
+    grid-area: btn;
+}
+.tablink :nth-child(4) {
+    grid-area: btn;
+}
+
 .tablink:hover {
     background-color: #777;
+}
+
+.content_container {
+    height: 100%;
 }
 
 .tabcontent {
@@ -36,12 +56,28 @@ body {
     flex: 1;
     background-color: #f1f1f1;
     transition: opacity 0.5s ease-in-out;
+    height: 100%;
 }
 
-#first {background-color:#1A7D61;}
-#snd {background-color:#A80874;}
-#third {background-color:#16425B;}
-#fourth {background-color:#E55934;}
+#first {
+    grid-area: main;
+    background-color: #1A7D61;
+}
+
+#snd {
+    grid-area: main;
+    background-color: #A80874;
+}
+
+#third {
+    grid-area: main;
+    background-color: #16425B;
+}
+
+#fourth {
+    grid-area: main;
+    background-color: #E55934;
+}
 
 button {
     background-color: #007bff;
