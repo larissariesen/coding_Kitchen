@@ -5,6 +5,7 @@ let subPages = [
     {title: "Binoxxo", href: "04_binoxxo/binoxxo.html"},
     {title: "Bad UX", href: "05_badUX/badUX.html"},
     {title: "Navigation", href: "06_tabbing/tabbing.html"},
+    {title: "Snap Scrolling", href: "07_snapScrolling/snapScrolling.html"},
 ]
 
 const showSubPageCard = () => {
