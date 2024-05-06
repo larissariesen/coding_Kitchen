@@ -7,13 +7,11 @@ body {
     height: 100vh;
 }
 
-/*https://www.w3schools.com/css/tryit.asp?filename=trycss_grid_layout_named*/
 .grid-container {
+    height: 100%;
     display: grid;
-    grid-template-areas:
-    'btn'
-    'main';
-    gap: 10px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 10% 90%;
 }
 
 .tablink {
@@ -27,55 +25,32 @@ body {
     font-size: 17px;
 }
 
-.tablink :first-child {
-    grid-area: btn;
-}
-.tablink :nth-child(2) {
-    grid-area: btn;
-}
-.tablink :nth-child(3) {
-    grid-area: btn;
-}
-.tablink :nth-child(4) {
-    grid-area: btn;
-}
-
 .tablink:hover {
     background-color: #777;
 }
 
-.content_container {
-    height: 100%;
-}
-
 .tabcontent {
     color: white;
-    opacity: 0;
     padding: 50px;
     text-align: center;
-    flex: 1;
     background-color: #f1f1f1;
     transition: opacity 0.5s ease-in-out;
-    height: 100%;
+    grid-column: 1 / -1;
 }
 
 #first {
-    grid-area: main;
     background-color: #1A7D61;
 }
 
 #snd {
-    grid-area: main;
     background-color: #A80874;
 }
 
 #third {
-    grid-area: main;
     background-color: #16425B;
 }
 
 #fourth {
-    grid-area: main;
     background-color: #E55934;
 }
 
