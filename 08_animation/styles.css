@@ -1,5 +1,10 @@
 body {
     font-family: 'Dubai Light', sans-serif;
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    height: 100vh;
+    --header-height: 5em;
 }
 
 .header {
@@ -28,4 +33,20 @@ button {
 
 button:hover {
     background-color: #0056b3;
+}
+
+.backgroundColorAnimation {
+    margin-top: var(--header-height);
+    width: 100px;
+    height: 100px;
+    animation-name: backgroundColorAnimation;
+    animation-duration: 4s;
+}
+
+@keyframes backgroundColorAnimation {
+    0% {
+        background-color: black;}
+    100% {
+        background-color: lightseagreen;
+    }
 }
