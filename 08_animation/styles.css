@@ -1,0 +1,31 @@
+body {
+    font-family: 'Dubai Light', sans-serif;
+}
+
+.header {
+    width: 100%;
+    height: var(--header-height);
+    text-align: center;
+    position: fixed;
+}
+
+.home-link {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 1s ease-in-out;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
