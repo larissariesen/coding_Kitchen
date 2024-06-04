@@ -6,6 +6,7 @@ body {
     flex-direction: column;
     height: 100vh;
     --header-height: 5em;
+    overflow: hidden;
 }
 
 .header {
@@ -15,14 +16,14 @@ body {
     position: fixed;
     top: 0;
     background-color: white;
-    z-index: 1000; /* Ensure header is on top */
+    z-index: 1000;
 }
 
 .home-link {
     position: fixed;
     top: 10px;
     left: 10px;
-    z-index: 1000; /* Ensure home-link is on top */
+    z-index: 1000;
 }
 
 button {
@@ -48,14 +49,18 @@ button:hover {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    position: relative; /* Establish containing block for absolute positioned elements */
+    position: relative;
+}
+
+.center {
+    text-align: center;
 }
 
 .backgroundColorAnimation {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    position: absolute; /* Allow free movement across the screen */
+    position: absolute;
     animation-name: backgroundColorAnimation;
     animation-duration: 4s;
     animation-iteration-count: infinite;
@@ -67,27 +72,27 @@ button:hover {
 @keyframes backgroundColorAnimation {
     0% {
         background-color: black;
-        left: 0;
+        left: 150px;
         top: 0;
     }
     25% {
         background-color: yellow;
-        left: 10px;
+        left: 1000px;
         top: 0;
     }
     50% {
         background-color: blue;
-        left: 300px;
-        top: 0;
+        left: 1000px;
+        top: 400px;
     }
     75% {
         background-color: green;
-        left: 800px;
-        top: 0;
+        left: 150px;
+        top: 400px;
     }
     100% {
         background-color: black;
-        left: 1000px;
+        left: 150px;
         top: 0;
     }
 }
@@ -96,7 +101,6 @@ button:hover {
     animation-duration: 3s;
     animation-name: slidein;
     animation-direction: alternate;
-    z-index: 500;
 }
 
 @keyframes slidein {
@@ -108,5 +112,27 @@ button:hover {
     to {
         margin-left: 0;
         width: 100%;
+    }
+}
+
+.imageAnimation {
+    height: 100px;
+    width: 100px;
+    animation-name: imageAnimation;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    clip-path: circle(50%);
+}
+
+@keyframes imageAnimation {
+    0% {
+        transform: rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(380deg);
     }
 }
