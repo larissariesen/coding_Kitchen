@@ -1,0 +1,62 @@
+html {
+    overflow: hidden;
+    height: 100vh;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: scroll;
+    scrollbar-width: thin;
+    overflow-x: hidden;
+    height: 100vh;
+    scroll-snap-type: y mandatory;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 1000;
+    border-bottom: 3px solid black;
+}
+.home-link {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+}
+
+section {
+    height: 100vh;
+    scroll-snap-align: start;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px
+}
+
+button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 1s ease-in-out;
+}
+
+button:hover {
+    background-color: #0056b3;
+}

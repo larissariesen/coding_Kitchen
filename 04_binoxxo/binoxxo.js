@@ -132,7 +132,7 @@ const showSuccessElement = () => {
         const confetti = document.createElement('div');
         confetti.classList.add('confetti');
         confetti.style.left = `${Math.random() * 100}%`; // Random horizontal position
-        confetti.style.animationDelay = `${Math.random() * 3}s`; // Random animation delay
+        confetti.style.animationDelay = `${Math.random() * 3}s`;
 
         confetti.style.backgroundColor = getRandomColor();
 
