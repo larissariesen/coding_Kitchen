@@ -1,8 +1,9 @@
 body {
     font-family: 'Dubai Light', sans-serif;
-    margin: 10px;
-    padding: 10px;
+    margin: 0;
+    padding: 0;
     display: flex;
+    flex-direction: column;
     height: 100vh;
     --header-height: 5em;
 }
@@ -12,12 +13,16 @@ body {
     height: var(--header-height);
     text-align: center;
     position: fixed;
+    top: 0;
+    background-color: white;
+    z-index: 1000; /* Ensure header is on top */
 }
 
 .home-link {
     position: fixed;
     top: 10px;
     left: 10px;
+    z-index: 1000; /* Ensure home-link is on top */
 }
 
 button {
@@ -28,25 +33,80 @@ button {
     margin: 5px;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 1s ease-in-out;
+    transition: background-color 1s ease-in;
 }
 
 button:hover {
     background-color: #0056b3;
 }
 
-.backgroundColorAnimation {
+.content {
     margin-top: var(--header-height);
+    flex-grow: 1;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* Establish containing block for absolute positioned elements */
+}
+
+.backgroundColorAnimation {
     width: 100px;
     height: 100px;
+    border-radius: 50%;
+    position: absolute; /* Allow free movement across the screen */
     animation-name: backgroundColorAnimation;
     animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
 }
 
 @keyframes backgroundColorAnimation {
     0% {
-        background-color: black;}
+        background-color: black;
+        left: 0;
+        top: 0;
+    }
+    25% {
+        background-color: yellow;
+        left: 10px;
+        top: 0;
+    }
+    50% {
+        background-color: blue;
+        left: 300px;
+        top: 0;
+    }
+    75% {
+        background-color: green;
+        left: 800px;
+        top: 0;
+    }
     100% {
-        background-color: lightseagreen;
+        background-color: black;
+        left: 1000px;
+        top: 0;
+    }
+}
+
+.textAnimation {
+    animation-duration: 3s;
+    animation-name: slidein;
+    animation-direction: alternate;
+    z-index: 500;
+}
+
+@keyframes slidein {
+    from {
+        margin-left: 100%;
+        width: 300%;
+    }
+
+    to {
+        margin-left: 0;
+        width: 100%;
     }
 }
